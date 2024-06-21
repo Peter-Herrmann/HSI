@@ -5,7 +5,7 @@ module clock_divider(
 );
  
 reg [31 : 0] counter = 32'd0;
-parameter DIVISOR = 32'd15625000;
+parameter DIVISOR = 32'd7812500;
  
 always @(posedge i_clk, negedge rst) begin
     if(rst == 1'b0) begin

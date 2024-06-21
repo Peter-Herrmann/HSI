@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Fri Jun 21 21:12:11 2024
+| Date             : Fri Jun 21 21:39:19 2024
 | Host             : hsinterns running 64-bit Ubuntu 22.04.4 LTS
 | Command          : report_power -file breadboard_test_power_routed.rpt -pb breadboard_test_power_summary_routed.pb -rpx breadboard_test_power_routed.rpx
 | Design           : breadboard_test
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 17.278 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 19.182 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 16.957                           |
-| Device Static (W)        | 0.321                            |
+| Dynamic (W)              | 18.776                           |
+| Device Static (W)        | 0.406                            |
 | Effective TJA (C/W)      | 4.9                              |
-| Max Ambient (C)          | 1.1                              |
-| Junction Temperature (C) | 108.9                            |
+| Max Ambient (C)          | 0.0                              |
+| Junction Temperature (C) | 118.1                            |
 | Confidence Level         | Low                              |
 | Setting File             | ---                              |
 | Simulation Activity File | ---                              |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.249 |      135 |       --- |             --- |
-|   LUT as Logic |     0.199 |       48 |     10400 |            0.46 |
-|   Register     |     0.020 |       62 |     20800 |            0.30 |
+| Slice Logic    |     0.279 |      147 |       --- |             --- |
+|   LUT as Logic |     0.227 |       55 |     10400 |            0.53 |
+|   Register     |     0.021 |       65 |     20800 |            0.31 |
+|   CARRY4       |     0.016 |        7 |      8150 |            0.09 |
 |   BUFG         |     0.016 |        2 |        32 |            6.25 |
-|   CARRY4       |     0.015 |        6 |      8150 |            0.07 |
 |   Others       |     0.000 |        7 |       --- |             --- |
-| Signals        |     0.366 |      126 |       --- |             --- |
-| I/O            |    16.343 |       50 |       170 |           29.41 |
-| Static Power   |     0.321 |          |           |                 |
-| Total          |    17.278 |          |           |                 |
+| Signals        |     0.386 |      138 |       --- |             --- |
+| I/O            |    18.110 |       50 |       170 |           29.41 |
+| Static Power   |     0.406 |          |           |                 |
+| Total          |    19.182 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,16 +71,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.844 |       0.634 |      0.210 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.635 |       0.598 |      0.037 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     4.621 |       4.620 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.963 |       0.686 |      0.277 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.708 |       0.663 |      0.045 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     5.121 |       5.120 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.006 |       0.000 |      0.006 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.008 |       0.000 |      0.008 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -138,13 +138,14 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| breadboard_test   |    16.957 |
-|   U_clk_div       |     0.378 |
-|   U_keypad        |     0.124 |
-|     U_Col_Counter |     0.095 |
-|   U_leddriver     |     0.049 |
+| breadboard_test   |    18.776 |
+|   U_clk_div       |     0.410 |
+|   U_keypad        |     0.100 |
+|     U_Col_Counter |     0.084 |
+|   U_leddriver     |     0.081 |
 |     U_7seg1       |     0.025 |
-|     U_7seg2       |     0.023 |
+|     U_7seg2       |     0.021 |
+|     U_7seg3       |     0.035 |
 +-------------------+-----------+
 
 
