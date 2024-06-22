@@ -34,9 +34,9 @@ module keypad_decoder (
             case(col_cnt_out)
                 4'b0001: //Column 0 low
                     case(RowIn)
-                        4'b0001: KeyOut <= 4'd0; //Row 0 low
-                        4'b0010: KeyOut <= 4'd1; //Row 1 low
-                        4'b0100: KeyOut <= 4'd2; //Row 2 low
+                        4'b0001: KeyOut <= 4'd15; //Row 0 low
+                        4'b0010: KeyOut <= 4'd11; //Row 1 low
+                        4'b0100: KeyOut <= 4'd7; //Row 2 low
                         4'b1000: KeyOut <= 4'd3; //Row 3 low
                         default: begin
                             KeyOut      <= 4'd0; 
@@ -45,10 +45,10 @@ module keypad_decoder (
                     endcase
                 4'b0010: //Column 1 low
                     case(RowIn)
-                        4'b0001: KeyOut <= 4'd4; //Row 0 low
-                        4'b0010: KeyOut <= 4'd5; //Row 1 low
+                        4'b0001: KeyOut <= 4'd14; //Row 0 low
+                        4'b0010: KeyOut <= 4'd10; //Row 1 low
                         4'b0100: KeyOut <= 4'd6; //Row 2 low
-                        4'b1000: KeyOut <= 4'd7; //Row 3 low
+                        4'b1000: KeyOut <= 4'd2; //Row 3 low
                         default: begin
                             KeyOut      <= 4'd0; 
                             KeyPressed  <= 1'b0; 
@@ -56,10 +56,10 @@ module keypad_decoder (
                     endcase
                 4'b0100: //Column 2 low
                     case(RowIn)
-                        4'b0001: KeyOut <= 4'd8; //Row 0 low
+                        4'b0001: KeyOut <= 4'd13; //Row 0 low
                         4'b0010: KeyOut <= 4'd9; //Row 1 low
-                        4'b0100: KeyOut <= 4'd10; //Row 2 low
-                        4'b1000: KeyOut <= 4'd11; //Row 3 low
+                        4'b0100: KeyOut <= 4'd5; //Row 2 low
+                        4'b1000: KeyOut <= 4'd1; //Row 3 low
                         default: begin
                             KeyOut      <= 4'd0; 
                             KeyPressed  <= 1'b0; 
@@ -68,9 +68,9 @@ module keypad_decoder (
                 4'b1000: //Column 3 low
                     case(RowIn)
                         4'b0001: KeyOut <= 4'd12; //Row 0 low
-                        4'b0010: KeyOut <= 4'd13; //Row 1 low
-                        4'b0100: KeyOut <= 4'd14; //Row 2 low
-                        4'b1000: KeyOut <= 4'd15; //Row 3 low
+                        4'b0010: KeyOut <= 4'd8; //Row 1 low
+                        4'b0100: KeyOut <= 4'd4; //Row 2 low
+                        4'b1000: KeyOut <= 4'd0; //Row 3 low
                         default: begin
                             KeyOut      <= 4'd0; 
                             KeyPressed  <= 1'b0; 

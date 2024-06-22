@@ -42,7 +42,7 @@ module breadboard_test (
     .KeyPressed(KeyPressed) );
 
     //7 Seg
-    led_driver U_leddriver ( .in({KeyOut[0],KeyOut[1],KeyOut[2], 3'b000, KeyPressed}), ///KeyOut[3]}), .led0(led0), .led0_dp(led0_dp), //( .in({KeyOut[0],KeyOut[1],KeyOut[2],KeyOut[3]}),
+    led_driver U_leddriver ( .in({KeyOut[0],KeyOut[1],KeyOut[2], KeyOut[3]}), .led0(led0), .led0_dp(led0_dp),
             .led1(led1), .led1_dp(led1_dp), .led2(led2), .led2_dp(led2_dp), .led3(led3), .led3_dp(led3_dp) );
             
     clock_divider U_clk_div (.i_clk(clk), .rst(rst),.o_clk(clk_div));
@@ -53,15 +53,20 @@ module breadboard_test (
         if (rst==0 ) begin
             cnt <= '0;
         end else begin
-
-
-            for (int i=1; i < 4; i++) begin // Shift the KeyOuts
-                KeyOut[i] <= KeyOut[i-1];
-            end
-
-            if (KeyPressed) begin
+        
+        if (KeyPressed) begin
                 KeyOut[0] <= Keypad_output;
-            end
+        end
+        
+        for (int i=1; i < 4; i++) begin // Shift the KeyOuts
+           KeyOut[i] <= KeyOut[i-1];
+         end
+             
+
+
+          
+    // Update 1;       
+            
         end
     end
 

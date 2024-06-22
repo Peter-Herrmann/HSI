@@ -1,4 +1,4 @@
-module clock_divider(
+module clock_divider( 
     input logic i_clk,
     input logic rst,
     output logic o_clk
