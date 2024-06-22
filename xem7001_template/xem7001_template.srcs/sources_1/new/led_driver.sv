@@ -22,14 +22,20 @@ module led_driver
     output logic       led3_dp
     );
 
-    decoder7seg U_7seg0 (.in(in[15:12]), .out(led0));
-    decoder7seg U_7seg1 (.in(in[11:8]), .out(led1));
-    decoder7seg U_7seg2 (.in(in[7:4]), .out(led2));
-    decoder7seg U_7seg3 (.in(in[3:0]), .out(led3));
+    logic [6:0] led0_n, led1_n, led2_n, led3_n;
 
-    assign led0_dp = 1'b1; //active low
+    decoder7seg U_7seg0 (.in(in[15:12]), .out(led0_n[0:6]));
+    decoder7seg U_7seg1 (.in(in[11:8]),  .out(led1_n[0:6]));
+    decoder7seg U_7seg2 (.in(in[7:4]),   .out(led2_n[0:6]));
+    decoder7seg U_7seg3 (.in(in[3:0]),   .out(led3_n[0:6]));
+
+    assign led0 = ~led0_n;
+    assign led0_dp = 1'b1;
+    assign led1 = ~led1_n;
     assign led1_dp = 1'b1;
+    assign led2 = ~led2_n;
     assign led2_dp = 1'b1;
+    assign led3 = ~led3_n;
     assign led3_dp = 1'b1;
 
 endmodule
