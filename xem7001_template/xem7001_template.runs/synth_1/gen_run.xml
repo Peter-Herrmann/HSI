@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a15tftg256-1" LaunchTime="1719005903" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/top_level.dcp">
-  <File Type="VDS-TIMING-PB" Name="breadboard_test_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="breadboard_test_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="breadboard_test.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="breadboard_test_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="breadboard_test_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="breadboard_test_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="breadboard_test.vds"/>
-  <File Type="REPORTS-TCL" Name="breadboard_test_reports.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a15tftg256-1" LaunchTime="1719073796" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/top_level.dcp">
   <File Type="PA-TCL" Name="breadboard_test.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="breadboard_test_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="breadboard_test_reports.tcl"/>
+  <File Type="RDS-RDS" Name="breadboard_test.vds"/>
+  <File Type="RDS-UTIL" Name="breadboard_test_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="breadboard_test_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="breadboard_test.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="breadboard_test_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="breadboard_test_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/clock_divider.sv">
@@ -18,36 +18,60 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../counter.sv">
+    <File Path="$PSRCDIR/sources_1/new/counter.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../decoder7seg.sv">
+    <File Path="$PSRCDIR/sources_1/new/decoder7seg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../keypad_decoder.sv">
+    <File Path="$PSRCDIR/sources_1/new/keypad_decoder.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../led_driver.sv">
+    <File Path="$PSRCDIR/sources_1/new/led_driver.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../breadboard_test.sv">
+    <File Path="$PSRCDIR/sources_1/new/breadboard_test.sv">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/alu_fsm.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/alu.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/keypad_second_dec.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

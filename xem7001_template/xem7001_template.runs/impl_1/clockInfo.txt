@@ -1,7 +1,7 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Fri Jun 21 21:39:08 2024
-| Host         : hsinterns
+| Date         : Sat Jun 22 09:31:14 2024
+| Host         : PETER-H-T14
 | Design       : design_1
 | Device       : xc7a15t-ftg256-1--
 -------------------------------------

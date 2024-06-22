@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/ndownes/Desktop/xem7001_template/xem7001_template.runs/synth_1/breadboard_test.tcl"
+  variable script "C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.runs/synth_1/breadboard_test.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,29 +56,27 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a15tftg256-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/ndownes/Desktop/xem7001_template/xem7001_template.cache/wt [current_project]
-set_property parent.project_path /home/ndownes/Desktop/xem7001_template/xem7001_template.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.cache/wt [current_project]
+set_property parent.project_path C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/ndownes/Desktop/xem7001_template/xem7001_template.cache/ip [current_project]
+set_property ip_output_repo c:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  /home/ndownes/Desktop/xem7001_template/xem7001_template.srcs/sources_1/new/clock_divider.sv
-  /home/ndownes/counter.sv
-  /home/ndownes/decoder7seg.sv
-  /home/ndownes/keypad_decoder.sv
-  /home/ndownes/led_driver.sv
-  /home/ndownes/breadboard_test.sv
+  C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/sources_1/new/clock_divider.sv
+  C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/sources_1/new/counter.sv
+  C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/sources_1/new/decoder7seg.sv
+  C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/sources_1/new/keypad_decoder.sv
+  C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/sources_1/new/led_driver.sv
+  C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/sources_1/new/breadboard_test.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -89,12 +87,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/ndownes/Desktop/xem7001_template/xem7001_template.srcs/constrs_1/new/xem7001.xdc
-set_property used_in_implementation false [get_files /home/ndownes/Desktop/xem7001_template/xem7001_template.srcs/constrs_1/new/xem7001.xdc]
+read_xdc C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/constrs_1/new/xem7001.xdc
+set_property used_in_implementation false [get_files C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/constrs_1/new/xem7001.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/ndownes/Desktop/xem7001_template/xem7001_template.srcs/utils_1/imports/synth_1/top_level.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/utils_1/imports/synth_1/top_level.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

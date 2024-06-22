@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/ndownes/Desktop/xem7001_template/xem7001_template.srcs/constrs_1/new/xem7001.xdc rfile:../../../xem7001_template.srcs/constrs_1/new/xem7001.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/PeterHerrmann/Code/HSI/xem7001_template/xem7001_template.srcs/constrs_1/new/xem7001.xdc rfile:../../../xem7001_template.srcs/constrs_1/new/xem7001.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:12 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN K12 [get_ports {hi_muxsel}]
 set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
