@@ -1,87 +1,52 @@
-//////////////////////////////////////////////////////////////////////////////
-//// Copyright (c) AsteraLabs Inc. All rights reserved.
-//// AsteraLabs Confidential Property
-//// --------------------------------------------------
-//// Filename: keypad_decoder.sv
-//// Author  : Nathaniel Downes & Abhishek Krishnan
-//// Details : Decoder for Parallax 4x4 Matrix Membrane Keypad (#27899) for Summer 2024
-////           High School Intern Project
-//////////////////////////////////////////////////////////////////////////////
 
-module keypad_decoder (
-    input  logic       clk,                  
-    input  logic       rst,
-    input  logic [3:0] RowIn,
-    output logic [3:0] KeyOut,
-    output logic [3:0] ColOut,
-    output logic       KeyPressed
-);
-    logic [3:0] col_cnt_out;
+module keypad_decoder(
+        input  logic [3:0] i_key_index,        
 
-    //////////////// Put Your Column Counter Here ////////////////
-    counter U_Col_Counter (.i_clk(clk), .i_rst(rst), .o_out(col_cnt_out) );
+        output logic [3:0] o_number,      // Binary number if the key is a number key
+        output logic [1:0] o_function,    // Function index (0-3) for functions (A-D)
+        output logic       o_is_number,   // High if key index is a number key
+        output logic       o_is_function, // High if key index is a funciton key
+        output logic       o_clear,       // High if key index is the clear key
+        output logic       o_equals       // High if key index is the equals key
+    );
+    
 
-    assign ColOut = col_cnt_out;
+    always_comb begin
+        case(i_key_index)
+            4'd0:    o_number = 4'd1;
+            4'd1:    o_number = 4'd2;
+            4'd2:    o_number = 4'd3;
+            4'd4:    o_number = 4'd4;
+            4'd5:    o_number = 4'd5;
+            4'd6:    o_number = 4'd6;
+            4'd8:    o_number = 4'd7;
+            4'd9:    o_number = 4'd8;
+            4'd10:   o_number = 4'd9;
+            4'd13:   o_number = 4'd0;
+            default: o_number = 4'd15;
+        endcase
+    end   
 
-    // Row Scanning Logic
-    always_ff @(posedge clk, negedge rst) begin
-        if (rst == 1'b0 ) begin
-            KeyOut     <= '0;
-            KeyPressed <= 1'b0;
-        end else begin
-            //ColOut <= col_cnt_out;
-            KeyPressed <= 1'b1;
-            case(col_cnt_out)
-                4'b0001: //Column 0 low
-                    case(RowIn)
-                        4'b0001: KeyOut <= 4'd0; //Row 0 low
-                        4'b0010: KeyOut <= 4'd1; //Row 1 low
-                        4'b0100: KeyOut <= 4'd2; //Row 2 low
-                        4'b1000: KeyOut <= 4'd3; //Row 3 low
-                        default: begin
-                            KeyOut      <= 4'd0; 
-                            KeyPressed  <= 1'b0; 
-                        end  
-                    endcase
-                4'b0010: //Column 1 low
-                    case(RowIn)
-                        4'b0001: KeyOut <= 4'd4; //Row 0 low
-                        4'b0010: KeyOut <= 4'd5; //Row 1 low
-                        4'b0100: KeyOut <= 4'd6; //Row 2 low
-                        4'b1000: KeyOut <= 4'd7; //Row 3 low
-                        default: begin
-                            KeyOut      <= 4'd0; 
-                            KeyPressed  <= 1'b0; 
-                        end 
-                    endcase
-                4'b0100: //Column 2 low
-                    case(RowIn)
-                        4'b0001: KeyOut <= 4'd8; //Row 0 low
-                        4'b0010: KeyOut <= 4'd9; //Row 1 low
-                        4'b0100: KeyOut <= 4'd10; //Row 2 low
-                        4'b1000: KeyOut <= 4'd11; //Row 3 low
-                        default: begin
-                            KeyOut      <= 4'd0; 
-                            KeyPressed  <= 1'b0; 
-                        end 
-                    endcase
-                4'b1000: //Column 3 low
-                    case(RowIn)
-                        4'b0001: KeyOut <= 4'd12; //Row 0 low
-                        4'b0010: KeyOut <= 4'd13; //Row 1 low
-                        4'b0100: KeyOut <= 4'd14; //Row 2 low
-                        4'b1000: KeyOut <= 4'd15; //Row 3 low
-                        default: begin
-                            KeyOut      <= 4'd0; 
-                            KeyPressed  <= 1'b0; 
-                        end 
-                    endcase
-                default: begin
-                    KeyOut      <= 4'd0; 
-                    KeyPressed  <= 1'b0; 
-                end 
-            endcase
-        end
+
+    always_comb begin
+        case (i_key_index)
+            4'd3   : o_function = 2'd0;
+            4'd7   : o_function = 2'd1;
+            4'd11  : o_function = 2'd2;
+            4'd15  : o_function = 2'd3;
+            default: o_function = 2'd0;
+        endcase
     end
-endmodule
 
+
+    assign o_is_number   = (o_number != 4'd15);
+
+    assign o_is_function = (i_key_index == 4'd3)  || (i_key_index == 4'd7) ||
+                           (i_key_index == 4'd11) || (i_key_index == 4'd15);
+
+    assign o_clear       = (i_key_index == 4'd12);
+    assign o_equals      = (i_key_index == 4'd14);
+    
+
+    
+endmodule
