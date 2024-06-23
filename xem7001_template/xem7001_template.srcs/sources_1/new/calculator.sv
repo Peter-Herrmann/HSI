@@ -50,8 +50,9 @@ module calculator (
     logic [15:0] calculator_result;
 
     // 8 LEDs on the board can be used to help debug. Replace any signals here to display them.
-    assign led_test[7:0] = ~{ rst, 
-                              keypad_function[1:0], 
+    assign led_test[7:0] = ~{ clk_div,
+                              rst, 
+                              btn_test, 
                               key_is_pressed, 
                               keypad_clear, 
                               keypad_equals, 
