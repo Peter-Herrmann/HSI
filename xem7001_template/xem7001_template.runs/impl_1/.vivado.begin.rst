@@ -3,3 +3,63 @@
     <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="17776" HostCore="12" HostMemory="033999958016">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="17308" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="14816" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="11424" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="4828" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="30168" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="36588" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="39364" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="28380" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="47944" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="35452" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="38988" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="PeterHerrmann" Host="PETER-H-T14" Pid="24364" HostCore="12" HostMemory="033999958016">
+    </Process>
+</ProcessHandle>
