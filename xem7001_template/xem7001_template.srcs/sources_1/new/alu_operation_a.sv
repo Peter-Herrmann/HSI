@@ -5,6 +5,7 @@ module alu_operation_a(
         output logic [15:0] o_result
     );
     
-    assign o_result = {12'b0, i_A} + {12'b0, i_B};
+    // TODO: Implement your ALU Operation here
+    assign o_result = 'b0; // Delete me
         
 endmodule
