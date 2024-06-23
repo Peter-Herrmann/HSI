@@ -2,14 +2,13 @@
 //// Copyright (c) AsteraLabs Inc. All rights reserved.                                        ////
 //// AsteraLabs Confidential Property                                                          ////
 //// --------------------------------------------------                                        ////
-//// Filename: breadboard_test.sv                                                              ////
+//// Filename: calculator.sv                                                                   ////
 //// Author  : Nathaniel Downes & Abhishek Krishnan                                            ////
-//// Details : File to connect keypad to 7 segment decoder. Displays values                    ////
-////           of keypad ouput (hex, not decoded values) on 7 segment display                  ////
-////           sequentially, shifting one display each cycle                                   ////
+//// Details : Drives a 16-key keypad, computes one of 4 operations, and displays the result   ////
+////           on 4 7-segment displays.                                                        ////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-module breadboard_test (
+module calculator (
     // General IO
     input  logic       clk,                  
     input  logic       rst,
@@ -31,26 +30,26 @@ module breadboard_test (
     output logic       led3_dp
 );
 
-    logic [3:0]      keypad_index;       // Key position index, 1st row is 0-3 from left to right
-    logic            key_is_pressed;     // High if a key is currently pressed
+    logic        clk_div;
 
-    logic [3:0]      keypad_number;      // Binary number if the key is a number key
-    logic [1:0]      keypad_function;    // Function index (0-3) for functions A-D
-    logic            keypad_is_number;   // High if key index is a number key
-    logic            keypad_is_function; // High if key index is a function key
-    logic            keypad_clear;       // High if key index is the clear key
-    logic            keypad_equals;      // High if key index is the equals key
+    logic [3:0]  keypad_index;       // Key position index, 1st row is 0-3 from left to right
+    logic        key_is_pressed;     // High if a key is currently pressed
 
-    logic [1:0]      alu_function;
-    logic [3:0]      operand_A;
-    logic [3:0]      operand_B;
-    logic            alu_enable;
+    logic [3:0]  keypad_number;      // Binary number if the key is a number key
+    logic [1:0]  keypad_function;    // Function index (0-3) for functions A-D
+    logic        keypad_is_number;   // High if key index is a number key
+    logic        keypad_is_function; // High if key index is a function key
+    logic        keypad_clear;       // High if key index is the clear key
+    logic        keypad_equals;      // High if key index is the equals key
 
-    logic [15:0]     calculator_result;
+    logic [1:0]  alu_function;
+    logic [3:0]  operand_A;
+    logic [3:0]  operand_B;
+    logic        alu_enable;
 
-    logic            clk_div;
+    logic [15:0] calculator_result;
 
-    // The 8 LEDs on the board can be used to help debug. Replace any signals here to display them.
+    // 8 LEDs on the board can be used to help debug. Replace any signals here to display them.
     assign led_test[7:0] = ~{ rst, 
                               keypad_function[1:0], 
                               key_is_pressed, 
@@ -150,7 +149,8 @@ module breadboard_test (
         .led2       (led2), 
         .led2_dp    (led2_dp), 
         .led3       (led3), 
-        .led3_dp    (led3_dp) );
+        .led3_dp    (led3_dp) 
+    );
             
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -160,9 +160,8 @@ module breadboard_test (
     clock_divider #(.DIVISOR(32'd781250)) U_clk_div (
         .i_clk      (clk), 
         .rst        (rst),
-        .o_clk      (clk_div));
-
-    assign led_test[7:0] = ~{rst, keypad_function, key_is_pressed, keypad_clear, keypad_equals, keypad_is_number, keypad_is_function};
+        .o_clk      (clk_div)
+    );
 
 
 endmodule
